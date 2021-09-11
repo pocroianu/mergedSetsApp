@@ -29,7 +29,8 @@ export class AppComponent {
     for(let id of uniqueIds){
       let s = new Set();
       if (set1.dictionary.get(id) && set2.dictionary.get(id)){
-        s = new Set([...set1.dictionary.get(id), ...set2.dictionary.get(id)]);
+        let result = [...set1.dictionary.get(id), ...set2.dictionary.get(id)];
+        s = new Set(result.sort((a,b) => a-b));
       }
       else if(set1.dictionary.has(id)){
         s = new Set(set1.dictionary.get(id));
